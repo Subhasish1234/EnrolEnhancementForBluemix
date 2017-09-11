@@ -1,0 +1,587 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Enrol Enhancement</title>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+    <!--<link rel="stylesheet" href="styles/newFormat.css">-->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script type="text/javascript">
+function addEvent(el, name, handler)
+{
+    if (typeof window.addEventListener != "undefined")
+    {
+        el.addEventListener(name, handler, false);
+    }
+    else
+    {
+        el.attachEvent("on" + name, handler);
+    }
+};
+
+addEvent(window, "load",function()
+{
+    debugger;
+    var productRows = document.getElementById("productRows");
+    var clonedRow = productRows.getElementsByTagName("tr")[0].cloneNode(true);
+    addEvent(document.getElementById("addProductRow"), "click", function()
+    {
+        if (productRows.children.length<6)
+        {
+            productRows.appendChild(clonedRow.cloneNode(true));
+        }
+    });
+    addEvent(document.getElementById("removeProductRow"), "click", function () {
+        if (productRows.children.length > 1) {
+            productRows.children[0].remove();
+        }
+    });
+
+});
+    </script>
+</head>
+<body class="body-format">
+   <div data-role="page" id="maindiv" class="mainSection">
+	  <div data-role="header">
+	  <h1>Enter Enhancement Details</h1>
+	  </div>
+	  <div data-role="main" class="ui-content">
+		  <fieldset data-role="collapsible">
+			<legend>General Information</legend>
+          <div >
+              <table >
+                  <tr>
+                      <td>
+                          <label for="user" class="label">Request Number</label>
+                      </td>
+                      <td>
+                          <input id="RequestNumber" type="text" class="input">
+                      </td>
+                      <td>
+
+                          <label for="pass" class="label">Change Order Number</label>
+                      </td>
+                      <td>
+                          <input id="ChangeOrderNumber" type="text" class="input">
+                      </td>
+                      </tr>
+
+              </table>
+          </div>
+          <div>
+              <label for="pass" class="label">Description</label>
+              <textarea name="Description" id="Description" rows="10" cols="30"></textarea>
+          </div>
+          <div>
+              <table >
+                  <tr>
+                      <td>
+                          <label for="pass" class="label">Category</label>
+                      </td>
+                      <td>
+                          <select id="Category">
+                              <option value="AECOM Oracle">AECOM Oracle</option>
+                              <option value="HR">HR</option>
+                              <option value="SalesforceCore">Salesforce Core</option>dara
+                              <option value="HRIS">HRIS</option>
+                          </select>
+                      </td>
+                      <td></td><td></td><td></td>
+                      <td>
+                          <label for="pass" class="label">Status</label>
+                      </td>
+                      <td>
+                          <select id="Status">
+                              <option value="AECOM Oracle">Closed</option>
+                              <option value="HR">UAT completed</option>
+                              <option value="SalesforceCore">Implemented</option>
+                              <option value="HRIS">Development</option>
+                          </select>
+                      </td>
+
+                      <td>
+                          <label for="pass" class="label">Priority</label>
+                      </td>
+                      <td>
+                          <select id="Priority">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                          </select>
+                      </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>
+                          <label for="pass" class="label">Impact</label>
+                      </td>
+                      <td>
+                          <select id="Impact">
+                              <option value="Medium">Medium</option>
+                              <option value="High">High</option>
+                              <option value="Low">Low</option>
+                          </select>
+                      </td>
+
+                      <td>
+                          <label for="pass" class="label">Change Type</label>
+                      </td>
+                      <td>
+                          <select id="ChangeType">
+                              <option value="Normal">Normal</option>
+                              <option value="Expedited">Expedited</option>
+                          </select>
+                      </td>
+
+                  </tr>
+
+              </table>
+              
+          </div>
+          <div class="group">
+              <label for="pass" class="label">Assignee</label>
+              <input id="Assignee" type="text" class="input">
+          </div>
+          
+		  </fieldset>
+
+          <div>
+              <p id="blankpannel"></p>
+          </div>
+
+            <fieldset data-role="collapsible">
+            <legend>Dates</legend>
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="user" class="label">Open Date</label>
+                                    </td>
+                                    <td>
+                                        <input id="OpenDate" type="date" class="input">
+                                    </td>
+                                    <td style="padding-left:40px">
+                                        <label for="pass" class="label">Planned Start Date</label>
+                                    </td>
+                                    <td>
+                                        <input id="PlannedStartDate" type="date" class="input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="user" class="label">Planned End Date</label>
+                                    </td>
+                                    <td>
+                                        <input id="PlannedEndDate" type="date" class="input">
+                                    </td>
+                                    <td style="padding-left:40px">
+                                        <label for="pass" class="label">Revised End Date</label>
+                                    </td>
+                                    <td>
+                                        <input id="RevisedEndDate" type="date" class="input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="user" class="label">Actual Start Date</label>
+                                    </td>
+                                    <td>
+                                        <input id="ActualStartDate" type="date" class="input">
+                                    </td>
+                                    <td style="padding-left:40px">
+                                        <label for="pass" class="label">Actual End Date</label>
+                                    </td>
+                                    <td>
+                                        <input id="ActualEndDate" type="date" class="input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="user" class="label">UAT Release Date</label>
+                                    </td>
+                                    <td>
+                                        <input id="UATReleaseDate" type="date" class="input">
+                                    </td>
+                                    <td style="padding-left:40px">
+                                        <label for="pass" class="label">Production Deployment Date</label>
+                                    </td>
+                                    <td>
+                                        <input id="ProductionDeploymentDate" type="date" class="input">
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Month</th>
+                                        <th>Year</th>
+                                        <th>Hours(Planned)</th>
+                                        <th><input type="button" id="addProductRow" value="+"></th>
+                                        <th><input type="button" id="removeProductRow" value="-"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productRows">
+                                    <tr>
+                                        <td><select>
+                                            <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>Mar</option>
+                                                <option>Apr</option>
+                                                <option>May</option>
+                                                <option>Jun</option>
+                                                <option>Jul</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select></td>
+                                        <td><select>
+                                            <option>
+                                                2016
+                                            </option>
+                                                <option>
+                                                    2017
+                                                </option>
+                                                <option>
+                                                    2018
+                                                </option>
+                                            </select></td>
+                                        <td><input type="text" name="hour"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+            
+        </fieldset>
+        <div>
+            <p id="blankpannel1"></p>
+        </div>
+
+        <fieldset data-role="collapsible">
+            <legend>Others</legend>
+            <div>
+                <table id="otherstable">
+                    <tr>
+                        <td>
+                            <label for="user" class="label">Functional Tester</label>
+                        </td>
+                        <td>
+                            <input id="FunctionalTester" type="text" class="input">
+                        </td>
+                        <td style="padding-left:40px">
+                            <label for="pass" class="label">Original Estimated Hours</label>
+                        </td>
+                        <td>
+                            <input id="OriginalEstimatedHours" type="text" class="input">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="user" class="label">Revised Estimated Hours</label>
+                        </td>
+                        <td>
+                            <input id="RevisedEstimatedHours" type="text" class="input">
+                        </td>
+                        <td style="padding-left:40px">
+                            <label for="pass" class="label">ITD Hours Actual</label>
+                        </td>
+                        <td>
+                            <input id="ITDHoursActual" type="text" class="input">
+                        </td>
+                    </tr>
+                   
+
+                </table>
+            </div>
+
+        </fieldset>
+        
+
+	  </div>
+        <div data-role="footer">
+            <p align="center" style="column-fill">
+                <input type="submit" data-inline="true" value="Submit" onclick="myFunction()">
+            </p>
+        </div>
+       <div>
+              <p id="blankpannel"></p>
+          </div>
+       
+       <div>
+               
+
+
+
+
+           <table>
+               <tr>
+                   <td>
+                       <input id="SearchBox" type="text" class="input" oninput="SearchGridNames()">
+                   </td>
+                   
+               </tr>
+
+           </table>
+
+
+
+
+
+
+          </div>
+       
+        <div id="gridDiv">
+            <style>
+                table#tableGrid {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+            </style>
+            <table id="tableGrid" style="background-color:azure ActiveBorder:aliceblue">
+                <thead>
+                    <tr>
+                        <th width="100px" id="RequestId" hidden="hidden">RequestId</th>
+                        <th width="100px" id="RequestNumber">RequestNumber</th>
+                        <th width="100px" id="CONumber">CONumber</th>
+                        <th width="100px" id="Status">Status</th>
+
+                        <th width="100px" id="Action">Action</th>
+
+                        <th width="100px" id="Description">Description</th>
+                        <th width="100px" id="Track">Track</th>
+                        <th width="100px" id="Category">Category</th>
+
+                        <th width="100px" id="Priority">Priority</th>
+                        <th width="100px" id="Impact">Impact</th>
+                        <th width="100px" id="ChangeType">Change Type</th>
+
+                        <th width="100px" id="Assignee">Assignee</th>
+                        <th width="100px" id="OpenDate">Open Date</th>
+                        <th width="100px" id="FunctionalTester">Functional Tester</th>
+
+                        
+                    </tr>
+                </thead>
+                <tbody id="ibody"></tbody>
+            </table>
+        </div>
+	</div>
+    
+    
+	
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="antixss.js" type="text/javascript"></script>
+    <!--<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <script>
+        var ActiveRecordId = "";
+		var ActiveRecordRev = "";
+        function myFunction() {
+            debugger;
+			var RN = document.getElementById('RequestNumber').value;
+            var CON = $('#ChangeOrderNumber').val();
+            var Desc = $('#Description').val();
+            var Category = $('#Category').val();
+            var Status = $('#Status').val();
+            var Priority = $('#Priority').val();
+            var Impact = $('#Impact').val();
+            var ChangeType = $('#ChangeType').val();
+            var Assignee = $('#Assignee').val();
+            var Opendate = $('#Opendate').val();
+            var FunctionalTester = $('#FunctionalTester').val();
+            var id = ActiveRecordId;
+            var rev = ActiveRecordRev;
+
+            if (RN.length > 0) { 
+                $.ajax({
+                    method: "PUT",
+                    url: "./api/visitors",
+                    contentType: "application/json",
+                    data: JSON.stringify({ RequestNumber: RN, ChangeOrderNumber: CON, Description: Desc, Category: Category, Status: Status, Priority: Priority, Impact: Impact, ChangeType: ChangeType, Assignee: Assignee, Opendate: Opendate, FunctionalTester: FunctionalTester, id: ActiveRecordId, rev: ActiveRecordRev })
+                })
+                    .done(function (data) {
+                        /*$('#response').html(AntiXSS.sanitizeInput(data));
+                        $('#response').show();
+                        $('#login-form').hide();*/
+                        getNames();
+                    });
+            }
+        };
+        function getNames() {
+            debugger;
+            $.get("./api/visitors")
+                .done(function (data) {
+                    debugger;
+
+                var tableData = '';
+                $("#ibody").empty();
+                $("#ibody").html("");
+                var string1 = "aaaa";
+                tableData = data.map((row) => {
+
+                    var tr = '<tr>';
+                    tr += '<td style="display:none;">' + row._id + '</td>';
+                    tr += '<td><input type="hidden" name="row_requestId" class="row_requestId" value="' + row._id +'"> <a href="#" onClick="updateRecord(this)">' + row.RequestNumber + '</a></td>';
+                    tr += '<td>' + row.CONumber + '</td>';
+                    tr += '<td>' + row.Status + '</td>';
+                    tr += '<td> <input type="hidden" name="row_requestIdToDelete" class="row_requestIdToDelete" value="' + row._id + '"> <input type= "hidden" name= "row_requestRevToDelete" class="row_requestRevToDelete" value= "' + row._rev + '" > <input type="hidden" name="row_requestNumberToDelete" class="row_requestNumberToDelete" value="' + row.RequestNumber +'"> <input type="button"  value="Delete" onclick="deleteRow(this)"> </td>';
+
+                    tr += '<td>' + row.Description + '</td>';
+                    tr += '<td>' + row.Track + '</td>';
+                    tr += '<td>' + row.Category + '</td>';
+
+                    tr += '<td>' + row.Priority + '</td>';
+                    tr += '<td>' + row.Impact + '</td>';
+                    tr += '<td>' + row.ChangeType + '</td>';
+
+                    tr += '<td>' + row.Assignee + '</td>';
+                    tr += '<td>' + row.OpenDate + '</td>';
+                    tr += '<td>' + row.FunctionalTester + '</td>';
+
+                    
+                    tr += '</tr>';
+                    return tr;
+
+                })
+
+                $('#ibody').append(tableData);
+                // alert(data); // show response from the php script.
+            });
+        };
+
+        function updateRecord(e) {
+            debugger;
+            var id = $(e).parent().find('.row_requestId').val();
+
+            $.get("./api/visitors")
+                .done(function (data) {
+                    debugger;
+                    var filteredJsonOnRequestNumber = data.filter(function (row) {
+                        if (row._id.toLowerCase().includes(id.toLowerCase())) {
+                            return true
+                        } else {
+                            return false;
+                        }
+                    });
+                    ActiveRecordId = id;
+                    ActiveRecordRev = filteredJsonOnRequestNumber[0]._rev;
+                    $('#ChangeOrderNumber').val(filteredJsonOnRequestNumber[0].CONumber);
+                    $('#RequestNumber').val(filteredJsonOnRequestNumber[0].RequestNumber);
+                    $('#Category').val(filteredJsonOnRequestNumber[0].Category)
+
+                });
+            
+        }
+
+        function deleteRow(e) {
+            debugger;
+            //alert("delete button clicked");
+            var id = $(e).parent().find('.row_requestIdToDelete').val();
+            var deleteRev = $(e).parent().find('.row_requestRevToDelete').val();
+            var requestNumber = $(e).parent().find('.row_requestNumberToDelete').val();
+            //alert(requestNumber + deleteRev);
+            var answer = confirm("Do you really want to delete request " + requestNumber);
+            
+            if (answer) {
+               
+                if (id.length > 0) {
+                    $.ajax({
+                        method: "DELETE",
+                        url: "./api/visitors",
+                        contentType: "application/json",
+                        data: JSON.stringify({ id: id, rev: deleteRev })
+                    })
+                        .done(function (data) {
+                            debugger;
+                            //alert("page refresh")
+                            getNames();
+                        });
+                }
+            }
+            else { }
+        }
+
+            
+        function SearchGridNames() {
+
+            debugger;
+            $.get("./api/visitors")
+                .done(function (data) {
+                    debugger;
+                    var filteredJson = data.filter(function (row) {
+                        if (row.RequestNumber.toLowerCase().includes($('#SearchBox').val().toLowerCase()) || row.CONumber.toLowerCase().includes($('#SearchBox').val().toLowerCase())
+                            ||  row.Status.toLowerCase().includes($('#SearchBox').val().toLowerCase())
+                            || row.Category.toLowerCase().includes($('#SearchBox').val().toLowerCase()) || row.Impact.toLowerCase().includes($('#SearchBox').val().toLowerCase()) 
+							|| row.ChangeType.toLowerCase().includes($('#SearchBox').val().toLowerCase()) || row.Assignee.toLowerCase().includes($('#SearchBox').val().toLowerCase())
+							|| row.OpenDate.toLowerCase().includes($('#SearchBox').val().toLowerCase()) || row.FunctionalTester.toLowerCase().includes($('#SearchBox').val().toLowerCase())
+							|| row.Track.toLowerCase().includes($('#SearchBox').val().toLowerCase())
+                        ) {
+                            return true
+                        } else {
+                            return false;
+                        }
+                    });
+
+
+                    var tableData = '';
+                    $("#ibody").empty();
+                    $("#ibody").html("");
+                    tableData = filteredJson.map((row) => {
+                        
+
+                            var tr = '<tr>';
+                            tr += '<td>' + row._id + '</td>';
+                            tr += '<td><input type="hidden" name="row_requestNumber" class="row_requestNumber" value="' + row._id + '"> <a href="#" onClick="updateRecord(this)">' + row.RequestNumber + '</a></td>';
+                            tr += '<td>' + row.CONumber + '</td>';
+                            tr += '<td>' + row.Status + '</td>';
+
+                            tr += '<td>' + row.Description + '</td>';
+                            tr += '<td>' + row.Track + '</td>';
+                            tr += '<td>' + row.Category + '</td>';
+
+                            tr += '<td>' + row.Priority + '</td>';
+                            tr += '<td>' + row.Impact + '</td>';
+                            tr += '<td>' + row.ChangeType + '</td>';
+
+                            tr += '<td>' + row.Assignee + '</td>';
+                            tr += '<td>' + row.OpenDate + '</td>';
+                            tr += '<td>' + row.FunctionalTester + '</td>';
+                            tr += '</tr>';
+                            return tr;
+                        
+
+                    })
+
+                    $('#ibody').append(tableData);
+                })
+        };
+
+        getNames();
+
+    </script>
+</body>
+</html>
