@@ -1,119 +1,125 @@
-@import "compass/css3";
-
-$table-breakpoint: 480px; 
-$table-background-color: #FFF; $table-text-color: #024457; $table-outer-border: 1px solid #167F92; $table-cell-border: 1px solid #D9E4E6; $table-border-radius: 10px; $table-highlight-color: #EAF3F3; $table-header-background-color: #167F92; $table-header-text-color: #FFF; $table-header-border: 1px solid #FFF; @mixin responstable( $breakpoint: $table-breakpoint, $background-color: $table-background-color, $text-color: $table-text-color, $outer-border: $table-outer-border, $cell-border: $table-cell-border, $border-radius: none, $highlight-color: none, $header-background-color: $table-background-color, $header-text-color: $table-text-color, $header-border: $table-cell-border) {
-    .responstable
-
-{
-    margin: 1em 0;
-    width: 100%;
-    overflow: hidden;
-    background: $background-color;
-    color: $text-color;
-    border-radius: $border-radius;
-    border: $outer-border;
-    tr
-
-{
-    border: $cell-border;
-    &:nth-child(odd)
-
-{
-    background-color: $highlight-color;
+.FAQ {
+    vertical-align: top;
+    height: auto !important;
 }
 
-}
-
-th {
+.list {
     display: none;
-    border: $header-border;
-    background-color: $header-background-color;
-    color: $header-text-color;
-    padding: 1em;
-    &:first-child
-
-{
-    display: table-cell;
-    text-align: center;
+    height: auto;
+    margin: 0;
+    float: left;
 }
 
-&:nth-child(2) {
-    display: table-cell;
-    span
-
-{
+.show {
     display: none;
 }
 
-&:after {
-    content: attr(data-th);
+.hide:target + .show {
+    display: inline;
 }
 
-}
-
-@media (min-width: $breakpoint) {
-    &:nth-child(2) {
-        span
-
-{
-    display: block;
-}
-
-&:after {
+.hide:target {
     display: none;
 }
 
-}
-}
-}
-
-td {
-    display: block;
-    word-wrap: break-word;
-    max-width: 7em;
-    &:first-child
-
-{
-    display: table-cell;
-    text-align: center;
-    border-right: $cell-border;
-}
-
-@media (min-width: $breakpoint) {
-    border: $cell-border;
-}
-
-}
-
-th, td {
-    text-align: left;
-    margin: .5em 1em;
-
-    @media (min-width: $breakpoint) {
-        display: table-cell; padding: 1em;
+    .hide:target ~ .list {
+        display: inline;
     }
+.hide, .show {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 1px 0 #666;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 1px 1px 2px #000;
+    background: #cccbbb;
+    opacity: .95;
+    margin-right: 0;
+    float: left;
+    margin-bottom: 25px;
 }
 
+    .hide:hover, .show:hover {
+        color: #eee;
+        text-shadow: 0 0 1px #666;
+        text-decoration: none;
+        box-shadow: 0 0 4px #222 inset;
+        opacity: 1;
+        margin-bottom: 25px;
+    }
+
+.list p {
+    height: auto;
+    margin: 0;
 }
+
+.question {
+    float: left;
+    height: auto;
+    width: 90%;
+    line-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    font-style: italic;
 }
 
 
-@include responstable( $border-radius: $table-border-radius, $highlight-color: $table-highlight-color, $header-background-color: $table-header-background-color, $header-text-color: $table-header-text-color, $header-border: $table-header-border);
 
-// General styles body {
-    padding: 0 2em;
-    font-family: Arial, sans-serif;
-    color: #024457;
-    background: #f2f2f2;
+
+
+
+/*page formating*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-h1 {
-    font-family: Verdana;
-    font-weight: normal;
-    color: #024457;
-    span
-
-{
-    color: #167F92;
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  background: cyan;
 }
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 1em;
+    border:double;
+    object-fit:cover;
+    align-content:center;
+}
+
+header, footer {
+    background: yellowgreen;
+    height: 10vh;
+    margin-top:10px;
 }

@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title align="center">Enrol Enhancement</title>
+    <!--<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>-->
+    <!--<link rel="stylesheet" href="styles/newFormat.css">-->
+
+
+    <!--<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">-->
+
+
+    <link rel="stylesheet" href="styles/newFormat.css">
+
+    <!--<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+	<script src="javaScriptFile.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="antixss.js" type="text/javascript"></script>
+
+    
+</head>
+
+<body>
+    <header><img src="CO3.png" alt="Smiley face" height="42" width="42"> Enter Enhancement Details <img src="CO3.png" alt="Smiley face" height="42" width="42">
+    </header>
+   <div data-role="page" id="maindiv" class="mainSection">
+	  <div class="FAQ">
+        <a href="#hide1" class="hide" id="hide1">+</a>
+        <a href="#show1" class="show" id="show1">-</a>
+        <div class="question">General Information </div>
+       
+          <div class="list">
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="user" class="label">Request Number</label>
+                        </td>
+                        <td>
+                            <input id="RequestNumber" type="text" class="input">
+                        </td>
+                        <td>
+
+                            <label for="pass" class="label">Change Order Number</label>
+                        </td>
+                        <td>
+                            <input id="ChangeOrderNumber" type="text" class="input">
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div>
+                <label for="pass" class="label">Description</label>
+                <textarea name="Description" id="Description" rows="10" cols="30"></textarea>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="pass" class="label">Category</label>
+                        </td>
+                        <td>
+                            <select id="Category">
+                                <option value="AECOM Oracle">AECOM Oracle</option>
+                                <option value="HR">HR</option>
+                                <option value="SalesforceCore">Salesforce Core</option>dara
+                                <option value="HRIS">HRIS</option>
+                            </select>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <label for="pass" class="label">Status</label>
+                        </td>
+                        <td>
+                            <select id="Status">
+                                <option value="AECOM Oracle">Closed</option>
+                                <option value="HR">UAT completed</option>
+                                <option value="SalesforceCore">Implemented</option>
+                                <option value="HRIS">Development</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            <label for="pass" class="label">Priority</label>
+                        </td>
+                        <td>
+                            <select id="Priority">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <label for="pass" class="label">Impact</label>
+                        </td>
+                        <td>
+                            <select id="Impact">
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            <label for="pass" class="label">Change Type</label>
+                        </td>
+                        <td>
+                            <select id="ChangeType">
+                                <option value="Normal">Normal</option>
+                                <option value="Expedited">Expedited</option>
+                            </select>
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="group">
+                <label for="pass" class="label">Assignee</label>
+                <input id="Assignee" type="text" class="input">
+            </div>
+
+            <div>
+                <p id="blankpannel"></p>
+            </div>
+        </div>    
+
+	  </div>
+	</div>
+</body>
+</html>
