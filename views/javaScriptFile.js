@@ -228,4 +228,12 @@
             })
     };
 
+function exportExcel() {
+	  $("#table2excel").table2excel({
+	    exclude: ".noExl",
+	    name: "Worksheet Name",
+	    filename: "SomeFile" //do not include extension
+	  });
+	};
+
 getNames();
