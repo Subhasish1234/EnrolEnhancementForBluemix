@@ -61,6 +61,21 @@
         var Assignee = $('#Assignee').val();
         var Opendate = $('#Opendate').val();
         var FunctionalTester = $('#FunctionalTester').val();
+
+
+
+        var Analysis = $('#Analysis').val();
+        var DesignDevelopment = $('#DesignDevelopment').val();
+        var Testing = $('#Testing').val();
+        var UATSupport = $('#UATSupport').val();
+        var Training = $('#Training').val();
+        var Deployment = $('#Deployment').val();
+        var Remarks = $('#Remarks').val();
+        var ShortName = $('#ShortName').val();
+        var SubArea = $('#SubArea').val(); 
+        var ResourcePool = $('#ResourcePool').val();
+
+
         var id = ActiveRecordId;
         var rev = ActiveRecordRev;
 
@@ -69,7 +84,13 @@
                 method: "PUT",
                 url: "./api/visitors",
                 contentType: "application/json",
-                data: JSON.stringify({ RequestNumber: RN, ChangeOrderNumber: CON, Description: Desc, Category: Category, Status: Status, Priority: Priority, Impact: Impact, ChangeType: ChangeType, Assignee: Assignee, Opendate: Opendate, FunctionalTester: FunctionalTester, id: ActiveRecordId, rev: ActiveRecordRev })
+                data: JSON.stringify({
+                    RequestNumber: RN, ChangeOrderNumber: CON, Description: Desc, Category: Category, Status: Status, Priority: Priority, Impact: Impact, ChangeType: ChangeType, Assignee: Assignee,
+                    Opendate: Opendate, FunctionalTester: FunctionalTester, Analysis: Analysis, DesignDevelopment: DesignDevelopment, Testing: Testing,
+                    UATSupport: UATSupport, Training: Training, Deployment: Deployment, Remarks: Remarks, ShortName: ShortName, SubArea: SubArea, ResourcePool: ResourcePool,
+                    id: ActiveRecordId, rev: ActiveRecordRev,
+                    
+                })
             })
                 .done(function (data) {
                     /*$('#response').html(AntiXSS.sanitizeInput(data));

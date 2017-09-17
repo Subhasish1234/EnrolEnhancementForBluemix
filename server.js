@@ -57,6 +57,17 @@ app.put("/api/visitors", function (request, response) {
     var recordid = request.body.id;
     var recordRev = request.body.rev;
 
+    var Analysis = request.body.Analysis;
+    var DesignDevelopment = request.body.DesignDevelopment;
+    var Testing = request.body.Testing;
+    var UATSupport = request.body.UATSupport;
+    var Training = request.body.Training;
+    var Deployment = request.body.Deployment;
+    var Remarks = request.body.Remarks;
+    var ShortName = request.body.ShortName;
+    var SubArea = request.body.SubArea;
+    var ResourcePool = request.body.ResourcePool;
+
 
     if (!mydb) {
         console.log("No database.");
@@ -67,7 +78,10 @@ app.put("/api/visitors", function (request, response) {
 	{
     mydb.insert({
         "RequestNumber": RequestNumber, "CONumber": CONumber, "Description": Description, "Category": Category
-        , "Status": Status, "Priority": Priority, "Impact": Impact, "ChnageType": ChangeType, "Assignee": Assignee, "OpenDate": OpenDate, "FunctionalTester": FunctionalTester, "_id": recordid, "_rev": recordRev
+        , "Status": Status, "Priority": Priority, "Impact": Impact, "ChnageType": ChangeType, "Assignee": Assignee, "OpenDate": OpenDate, "FunctionalTester": FunctionalTester,
+        "Analysis": Analysis, "DesignDevelopment": DesignDevelopment, "Testing": Testing, "UATSupport": UATSupport, "Training": Training, "Deployment": Deployment,
+        "Remarks": Remarks, "ShortName": ShortName, "SubArea": SubArea, "ResourcePool": ResourcePool,
+        "_id": recordid, "_rev": recordRev
     }, function (err, body, header) {
         if (err) {
             return console.log('[mydb.insert] ', err.message);
@@ -80,7 +94,9 @@ app.put("/api/visitors", function (request, response) {
 	{
 	mydb.insert({
         "RequestNumber": RequestNumber, "CONumber": CONumber, "Description": Description, "Category": Category
-        , "Status": Status, "Priority": Priority, "Impact": Impact, "ChnageType": ChangeType, "Assignee": Assignee, "OpenDate": OpenDate, "FunctionalTester": FunctionalTester
+        , "Status": Status, "Priority": Priority, "Impact": Impact, "ChnageType": ChangeType, "Assignee": Assignee, "OpenDate": OpenDate, "FunctionalTester": FunctionalTester,
+        "Analysis": Analysis, "DesignDevelopment": DesignDevelopment, "Testing": Testing, "UATSupport": UATSupport, "Training": Training, "Deployment": Deployment,
+        "Remarks": Remarks, "ShortName": ShortName, "SubArea": SubArea, "ResourcePool": ResourcePool
     }, function (err, body, header) {
         if (err) {
             return console.log('[mydb.insert] ', err.message);
